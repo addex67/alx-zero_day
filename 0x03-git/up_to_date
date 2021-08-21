@@ -1,8 +1,10 @@
-app.post('/git', (req, res) => {
-  // If event is "push"
-  if (req.headers['x-github-event'] == "push") { 
-    /* Here will be our updating code */
-  }
+#/bin/sh
 
-  return res.sendStatus(200); // Send back OK status
-});
+# Fetch the newest code
+git fetch origin master
+
+# Hard reset
+git reset --hard origin/master
+
+# Force pull
+git pull origin master --force
